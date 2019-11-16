@@ -1,0 +1,28 @@
+body{
+	
+}
+
+.wp-player,#player,#overlay{
+	width: 640px;
+	height: 390px;
+}
+
+.wp-player{
+	background-color: yellow;
+	width: 640px;
+	height: 390px;
+	position: relative; 
+	z-index: 1;
+}
+#player{
+	z-index: 0;
+}
+#overlay{
+	
+	
+	background-color: rgba(100,0,0,.3);
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	z-index: 10;
+}

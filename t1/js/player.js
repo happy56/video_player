@@ -2,8 +2,15 @@ $(document).ready(function(){
     'use strict';
     
     function onPlayerReady(){
-        tg.player.playVideo();
+        //tg.player.playVideo();
     }
+
+    tg.bind('play_video', function(){
+        tg.player.playVideo();
+    });
+    tg.bind('pause_video', function(){
+        tg.player.pauseVideo();
+    });
 
 
     function onPlayerStateChange(){
@@ -26,9 +33,9 @@ $(document).ready(function(){
                  rel:0,
                  controls:0,
                  modestbranding:0,
-                 color: 'white',
+                 // color: 'white',
               //   playlist: 'taJ60kskkns,FG0fTKAqZ5g',
-                 enablejsapi:1 ,
+                 enablejsapi:1,
               //   modestbranding: 1, 
               //   showinfo: 0, 
               //   ecver: 2

@@ -5,12 +5,21 @@
 </head>
   <body>
 
-    
-    <div id="player"></div>
-    <div id="overlay"> USSSaaaa adsakdsjfkdsajflksdajf lkdajl</div>
-
-    <script src="https://www.youtube.com/iframe_api" >  </script>
+    <div class="wp-player" >
+      <div id="player"></div>
+      <div id="overlay"> USSSaaaa adsakdsjfkdsajflksdajf lkdajl</div>
+    </div>
+    <div>
+      <button id="btn_play"> Play</button>
+      <button id="btn_pause"> Pause</button>
+      <button> Button</button>
+      <button> Button</button>
+      <button> Button</button>
+      <progress value="22" max="100"></progress>
+      <input class="time-slider" type="range" value="0" step="any" />
+    </div>
     <script src="js/vendor/jquery.3.4.1.js" >  </script>
+    <script src="https://www.youtube.com/iframe_api" >  </script>
     <script src="js/tg.js" >  </script>
     <script src="js/dami_data.js" >  </script>
     <script src="js/player.js" >  </script>
