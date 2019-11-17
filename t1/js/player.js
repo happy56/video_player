@@ -2,6 +2,8 @@ $(document).ready(function(){
     'use strict';
     
     function onPlayerReady(){
+        init_timer();
+        tg.trigger('new_video');
         //tg.player.playVideo();
     }
 
@@ -14,9 +16,18 @@ $(document).ready(function(){
 
 
     function onPlayerStateChange(){
-        console.log('status change ', event);
+        // console.log('status change ', event);
     }
 
+    function update_triggers(){
+        tg.trigger('per_sec', Math.floor(tg.player.getCurrentTime()));
+    }
+
+
+    function init_timer(){
+        clearInterval(tg.time_update_interval);
+        tg.time_update_interval = setInterval(update_triggers, 1000);
+    }
 
 
     var onYouTubeIframeAPIReady = function () {
@@ -42,6 +53,7 @@ $(document).ready(function(){
               }
             }
             );
+        
     }
 
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;

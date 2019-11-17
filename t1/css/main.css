@@ -17,12 +17,25 @@ body{
 #player{
 	z-index: 0;
 }
-#overlay{
+
+.overlay{
 	
-	
-	background-color: rgba(100,0,0,.3);
   	position: absolute;
   	top: 0;
   	left: 0;
   	z-index: 10;
+  	transition: opacity 0.5s ease-in-out;
+  	transition: background-color 0.5s ease;
+}
+
+.overlay-hide{
+	opacity: 0;
+	background-color: transparent;
+  	filter: alpha(opacity=00);
+}
+
+.overlay-show{
+	opacity: 1;
+	background-color: yellow;
+  	filter: alpha(opacity=100);
 }
