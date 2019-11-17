@@ -23,12 +23,10 @@ $(document).ready(function(){
     });
 
     tg.bind('per_sec', function(e, video_current_time){
-        console.log(video_current_time);
         var indx = intups_list.indexOf(video_current_time); 
         if(indx !== -1){
             tg.trigger('interp_call', indx);
         }
-
     });
 
     tg.bind('interp_call', function(e, interp_indx){
@@ -37,8 +35,7 @@ $(document).ready(function(){
             tg.trigger('pause_video');
             tg.trigger(interp_obj.action, interp_obj);
             interp_obj.done = true;
-            // .done = true;
-            console.table(tg.course_data.intreps[interp_indx]);
+            console.log('intrup called');
         }
     });
 
