@@ -5,45 +5,55 @@
 </head>
   <body>
     <h1> Interactive Course Maker </h1>
-    <!-- #<button id="q-save"> Save </button> -->
-    <label for="course_title">Course Title</label><br>
-    <input type="text" id="course_title" /><br>
+    <div>
+        <label for="course_title">Course Title</label><br>
+        <input type="text" id="course_title" /><br>
 
-    <label for="youtube_id">Youtube Video ID / URL</label><br>
-    <input type="text" id="youtube_id" /><br>
-    <div id=player ></div>
-    <div id="wp-intrups">
-      <div id="btns-intrups"></div>
-    </div>
-    <div id="ctr-quiz" class="hide ctr" >
-      <h1> Add Question </h1>
-      <label for="question"> Qustion </label><br>
-      <input type="text" class="q-ques" id="question" /><br>
-
-      <label for="ans0"> Answer 1 </label><br>
-      <input type="text" class="q-ans" id="ans0" /><br>
-
-      <label for="ans1"> Answer 2 </label><br>
-      <input type="text" class="q-ans" id="ans1" /><br>
+        <label for="youtube_id">Youtube Video ID / URL</label><br>
+        <input type="text" id="youtube_id" /><br>
+        
       
-      <label for="ans2"> Answer 3 </label><br>
-      <input type="text" class="q-ans" id="ans2" /><br>
-
-      <label for="ans3"> Answer 4 </label><br>
-      <input type="text" class="q-ans" id="ans3" /><br>
-
-      <label for="ans4"> Answer 5 </label><br>
-      <input type="text" class="q-ans" id="ans4" /><br>
-
-      <label for="ans5"> Answer 6 </label><br>
-      <input type="text" class="q-ans" id="ans5" /><br>
-      <br>
-      <button id="q-add"> + Add Question </button>
-
-      
-
     </div>
 
+    <hr>
+
+    <div class="row2">
+      <div class="wp-video">
+        <!-- #<button id="q-save"> Save </button> -->
+        <div id=player > </div>
+      </div>
+
+      <div class="wp-video">
+        <div id="wp-intrups">
+          <div id="btns-intrups"> </div>
+        </div>
+        <div id="ctr-quiz" class="hide ctr" >
+          <h1> Add Question </h1>
+          <label for="question"> Qustion </label><br>
+          <input type="text" class="q-ques" id="question" /><br>
+
+          <label for="ans0"> Answer 1 </label><br>
+          <input type="text" class="q-ans" id="ans0" /><br>
+
+          <label for="ans1"> Answer 2 </label><br>
+          <input type="text" class="q-ans" id="ans1" /><br>
+          
+          <label for="ans2"> Answer 3 </label><br>
+          <input type="text" class="q-ans" id="ans2" /><br>
+
+          <label for="ans3"> Answer 4 </label><br>
+          <input type="text" class="q-ans" id="ans3" /><br>
+
+          <label for="ans4"> Answer 5 </label><br>
+          <input type="text" class="q-ans" id="ans4" /><br>
+
+          <label for="ans5"> Answer 6 </label><br>
+          <input type="text" class="q-ans" id="ans5" /><br>
+          <br>
+          <button id="q-add"> + Add Question </button>
+        </div>
+      </div>
+    </div>
 
     <script src="js/vendor/jquery.3.4.1.js" >  </script>
     <script src="https://www.youtube.com/iframe_api" >  </script>

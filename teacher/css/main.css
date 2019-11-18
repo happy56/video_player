@@ -2,43 +2,15 @@ body{
 	
 }
 
-.wp-player,#player,#overlay{
-	width: 640px;
-	height: 390px;
-}
-
-.wp-player{
-	background-color: yellow;
-	width: 640px;
-	height: 390px;
-	position: relative; 
-	z-index: 1;
-}
-#player{
-	z-index: 0;
-}
-
-.overlay{
-	
-  	position: absolute;
-  	top: 0;
-  	left: 0;
-  	z-index: 10;
-  	transition: opacity 0.5s ease-in-out;
-  	transition: background-color 0.5s ease;
-}
-
-.overlay-hide{
-	opacity: 0;
-	background-color: transparent;
-  	filter: alpha(opacity=00);
-}
-
-.overlay-show{
-	opacity: 1;
-	background-color: yellow;
-  	filter: alpha(opacity=100);
-}
 .hide{
 	display: none;
+}
+
+.row2{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+input[type=text]{
+	width: 80%;
 }
