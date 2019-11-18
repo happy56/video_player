@@ -21,15 +21,20 @@ $(document).ready(function(){
         video_id = get_id_from_url(video_id);
         tg.player.loadVideoById(video_id);
         $('#youtube_id').val(video_id);
+        tg.course_data.youtube_id = video_id;
 
     });
-
+    $('#course_title').change(function(){
+        tg.course_data.title = $('#course_title').val().trim();
+    });
 
     function init_iterps(){
         var i,ilen, html='';
         
-        for(i=0,ilen=tg.interputs.length;i<ilen;i+=1){
-            html += '<button class="ctl-button" data-control="ctr-'+tg.interputs[i]+'" >' + tg.interputs[i] + '</button>';
+        for(i=0,ilen=tg.control_interputs.length;i<ilen;i+=1){
+            html += '<button class="ctl-button" data-control="ctr-'
+            + tg.control_interputs[i]+ '" >' + tg.control_interputs[i] 
+            + '</button>';
         }
 
         $('#btns-intrups').html(html);
