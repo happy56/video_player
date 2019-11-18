@@ -22,6 +22,7 @@ $(document).ready(function(){
    tg.bind('save', save);
    $('#q-add').click(function(){
        var iterput ={
+           action: 'quiz',
            time: tg.last_current_time,
            answers:[],
            done: false,

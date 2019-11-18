@@ -40,6 +40,10 @@ $(document).ready(function(){
             }
         ]
     };
-    tg.course_data = course_data;
 
+    tg.course_data = course_data;
+    $.get('../backend/data/t2.json', function(data){
+        tg.course_data = JSON.parse(data);
+        console.log(tg.course_data);
+    })
 });   

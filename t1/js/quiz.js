@@ -22,7 +22,7 @@ $(document).ready(function(){
     function setup_quiz(interp_obj){
         woking_quiz = interp_obj;
 
-        var i,ilen, html = '<h1 id="q-question">'+interp_obj.qustion+'</h1>';
+        var i,ilen, html = '<h1 id="q-question">'+interp_obj.question+'</h1>';
         for(i=0,ilen=interp_obj.answers.length; i<ilen; i+=1){
             html += '<button class="qz-ans-btn"  data-index="'
                     + i + '" ">'+interp_obj.answers[i] + '</button>';

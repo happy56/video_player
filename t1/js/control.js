@@ -31,6 +31,7 @@ $(document).ready(function(){
 
     tg.bind('interp_call', function(e, interp_indx){
         var interp_obj = tg.course_data.intreps[interp_indx];
+        console.log(interp_obj);
         if(interp_obj.done === false){
             tg.trigger('pause_video');
             tg.trigger(interp_obj.action, interp_obj);
