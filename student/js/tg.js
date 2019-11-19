@@ -9,7 +9,7 @@ $(document).ready(function(){
     tg.trigger = function(evt_name, data){
         tg.$doc.trigger(evt_name, data);
     };
-    
+    tg.player = false;
     tg.time_update_interval = -11111;
 
 });

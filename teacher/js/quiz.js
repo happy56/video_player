@@ -1,5 +1,5 @@
-
 tg.control_interputs.push('quiz');
+
 $(document).ready(function(){
    'use strict';
    tg.bind('player_current_time_changed', function(e, time_in_sec){
@@ -10,26 +10,19 @@ $(document).ready(function(){
        $('#ctr-quiz').show();
    });
 
-   function save(){
-       $.post('../backend/save.php', 
-
-           {
-               title: tg.course_data.title,
-               data: JSON.stringify(tg.course_data),
-           }
-           );
-   }
-   tg.bind('save', save);
-   $('#q-add').click(function(){
-       var iterput ={
+   
+    var static_iterput = {
            action: 'quiz',
            time: tg.last_current_time,
            answers:[],
            done: false,
            next_action:'play_video',
        };
+
+
+   $('#q-add').click(function(){
+       var iterput = Object.assign(static_iterput);
            
-       
 
        var answer, question = $('#question').val().trim();
        if (question !== ''){
@@ -46,9 +39,9 @@ $(document).ready(function(){
 
        tg.course_data.intreps.push(iterput);
        tg.trigger('save');
-
-
-       // console.log('- ---- --------------- ', tg.course_data);
+       $('.q-a').each(function(i, e){
+           $(e).val('');
+       })
 
    });
 

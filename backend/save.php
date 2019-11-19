@@ -11,4 +11,7 @@ if (!empty(@$_POST['title'])) {
 	// }
 
 	file_put_contents($file, $_POST['data']);
+	header('Content-Type: application/json');
+	echo json_encode(array('filename' => $filename));
+
 }

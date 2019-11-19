@@ -13,7 +13,11 @@ $(document).ready(function(){
 
     
 
-
+    tg.bind('new_video', function(){
+        if(typeof tg.course_data.title === 'string'){
+            $('#o-h1').html('Couse : ' + tg.course_data.title);
+        }
+    });
 
 
 

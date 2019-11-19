@@ -14,6 +14,8 @@ $(document).ready(function(){
         console.log(intups_list);
     });
 
+    
+
     $('#btn_play').click(function(e){
         tg.trigger('play_video');
     });

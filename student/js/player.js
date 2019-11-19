@@ -1,16 +1,32 @@
 $(document).ready(function(){
     'use strict';
-    
+    var load_video_setTimer = -999;
+    tg.bind('load_video', function (){
+
+        if(typeof tg.player.loadVideoById !== 'undefined'){
+            console.log(typeof tg.player.loadVideoById, tg.player.loadVideoById, 'tg.player');
+            tg.player.loadVideoById(tg.course_data.youtube_id);
+        }else{
+            clearTimeout(load_video_setTimer);
+            load_video_setTimer = setTimeout(function(){ 
+                    tg.trigger('load_video'); 
+                },
+                1000);
+        }
+    });
+
     function onPlayerReady(){
-        init_timer();
+        init_timer();        
         tg.trigger('new_video');
         tg.player.mute();
         tg.player.playVideo();
     }
+    
 
     tg.bind('play_video', function(){
-        tg.player.playVideo();
+        tg.player.playVideo();      
     });
+
     tg.bind('pause_video', function(){
         tg.player.pauseVideo();
     });
@@ -36,7 +52,7 @@ $(document).ready(function(){
             {
               height: '390',
               width: '640',
-              videoId: tg.course_data.youtube_id,
+              // videoId: tg.course_data.youtube_id,
               events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
@@ -54,7 +70,9 @@ $(document).ready(function(){
               }
             }
             );
-        
+           
+
+            
     }
 
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
@@ -63,20 +81,3 @@ $(document).ready(function(){
 
       
 
-
-
-      // function onPlayerReady(event) {
-      //   event.target.playVideo();
-      // }
-
-      // var done = false;
-      // function onPlayerStateChange(event) {
-      //   if (event.data == YT.PlayerState.PLAYING && !done) {
-      //     setTimeout(stopVideo, 6000);
-      //     done = true;
-      //   }
-      // }
-      // function stopVideo() {
-      //   player.stopVideo();
-      //   console.log('video stoped');
-      // }

@@ -22,10 +22,51 @@ $(document).ready(function(){
         tg.player.loadVideoById(video_id);
         $('#youtube_id').val(video_id);
         tg.course_data.youtube_id = video_id;
-
+        tg.trigger('update-student-url');
     });
+
     $('#course_title').change(function(){
         tg.course_data.title = $('#course_title').val().trim();
+        tg.trigger('update-student-url');
+    });
+
+   tg.bind('save', function(){
+       $.post('../backend/save.php', 
+       {
+           title: tg.course_data.title,
+           data: JSON.stringify(tg.course_data),
+       }, 
+       function(data){
+           console.log('data came back ???', data);
+           tg.trigger('show_student_url', data);
+           //alert('post callback !! XXXX  is called');
+       });
+   });
+
+   function student_url(filename){
+       console.log(filename, ' +===============++++=');
+       return location.href.split('teacher')[0] 
+       + 'student/player.html#' 
+       + filename;
+   }
+
+
+
+   tg.bind('show_student_url', function(e, data){
+
+       console.log('show_student_url', data );
+
+       var surl = student_url(data.filename);
+       $('#student_url').attr('href', surl).html(surl);
+
+
+   });
+
+    tg.bind('update-student-url', function(){
+        if(tg.course_data.title.length > 0 && tg.course_data.youtube_id.length > 0){
+
+            tg.trigger('save');
+        }
     });
 
     function init_iterps(){
@@ -43,7 +84,11 @@ $(document).ready(function(){
             tg.trigger(type);
 
         });
-        console.log(html);
     }
+
     init_iterps();
+
+
+
+    
 });
