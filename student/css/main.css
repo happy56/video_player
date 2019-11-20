@@ -1,14 +1,28 @@
 body{
-	
+	font-family: 'Roboto', sans-serif;
+  	font-size: 16px;
 }
+.btn_play{
+	cursor: pointer;
+	margin-top: 147px;
+    font-size: 4em;
 
+}
+.center{
+	max-width: 150px;	
+	margin: auto;
+}
+.container{
+  max-width: 850px;
+  margin: 120px auto;
+}
 .wp-player,#player,#overlay{
 	width: 640px;
 	height: 390px;
 }
 
 .wp-player{
-	background-color: yellow;
+	background-color: #689F38;
 	width: 640px;
 	height: 390px;
 	position: relative; 
@@ -36,6 +50,13 @@ body{
 
 .overlay-show{
 	opacity: 1;
-	background-color: yellow;
+	background-color: #CDDC39;
   	filter: alpha(opacity=100);
+}
+.overlay_cnts
+{
+	max-width: 500px;
+	margin: auto;
+	text-align: center;
+	margin-top: 15px;
 }

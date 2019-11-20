@@ -10,6 +10,7 @@ $(document).ready(function(){
         tg.$doc.trigger(evt_name, data);
     };
     tg.player = false;
+    tg.course_data = false;
     tg.time_update_interval = -11111;
 
 });

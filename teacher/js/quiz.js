@@ -24,7 +24,8 @@ $(document).ready(function(){
    $('#q-add').click(function(){
        var iterput = Object.assign({}, static_iterput);
        iterput.time = tg.player_current_time;
-
+       iterput.answers = [];
+       
        var answer, question = $('#question').val().trim();
        if (question !== ''){
            iterput.question = question;

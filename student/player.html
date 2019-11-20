@@ -1,48 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    .hide{display: none;}
+    
+  </style>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
   <body>
 
+    <div class="container wp-loading">
+      <div class="text-center">  
+        <h1> Loading ... <progress value="20" max="100"></progress> </h1>
+    
+      </div>
+    </div>
+    <div class="container wp-body hide">
+    <h1 id="o-h1"> Welcome to Course </h1>
     <div class="wp-player" >
       <div id="player"></div>
       <div id="overlay" class="overlay overlay-show"> 
-        <div id="paused">
-          <h1 id="o-h1"> Welcome to Course </h1>
+        <div id="playing" class="overlay_cnts hide">
+          <div onclick="tg.trigger('pause_video');" class="btn_play">⏸️</div>
+        </div>
+        <div id="paused"  class="overlay_cnts">
+          <div class="center">
+            <div onclick="tg.trigger('play_video');" class="btn_play">▶️</div>
+          </div>
           <div id="o-div">
           </div>
         </div>
 
-        <div id="quized">
+        <div id="quized"  class="overlay_cnts hide">
           
           
         </div>
 
-        <div id="email">
-          <h1 id="o-h1"> </h1>
+        <div id="email"  class="overlay_cnts hide">
+          <h1 id="o-h1"> Subscribe your email </h1>
           <div id="o-div">
+            <input type=email id=email required="required" />
+            <button id="email-btn" > Subscribe </button>
+          </div>
         </div>
+
+        <div id="download"  class="overlay_cnts hide">
+          <h1 id="o-h1"> Download Asset </h1>
+          <div id="o-div">
+
+            <button id="download-btn" > Download </button>
+            
+          </div>
         </div>
+
+        
+
+        <div id="share"  class="overlay_cnts hide">
+          <h1> Share this Course with your friends</h1>
+          <div>
+            <button class="ashare-btn" > Facebook </button> 
+            <button class="ashare-btn" > Twitter </button> 
+            <button class="ashare-btn" > Pinterest </button> 
+            <button class="ashare-btn" > gmail </button> 
+
+          </div>
+        </div>
+
       </div>
     </div>
-    <div>
-      <button id="btn_play"> Play</button>
+    <div class="contl-btns  ">
       <button id="btn_pause"> Pause</button>
-     <!--  <button> Button</button>
+     <!--  
+
+      <button id="btn_play"> Play</button>
+     <button> Button</button>
       <button> Button</button>
       <button> Button</button>
       <progress value="22" max="100"></progress>
       <input class="time-slider" type="range" value="0" step="any" /> -->
     </div>
+  </div>
     <script src="js/vendor/jquery.3.4.1.js" >  </script>
     <script src="https://www.youtube.com/iframe_api" >  </script>
     <script src="js/tg.js" >  </script>
     <script src="js/dami_data.js" >  </script>
+    
     <script src="js/view.js" >  </script>
     <script src="js/player.js" >  </script>
-    <script src="js/quiz.js" >  </script>
     <script src="js/url.js" >  </script>
+    
+    <script src="js/quiz.js" >  </script>
+    <script src="js/share.js" >  </script>
+    <script src="js/download.js" >  </script>
+    <script src="js/email.js" >  </script>
+
     <script src="js/control.js" >  </script>
   </body>
 </html>

@@ -14,15 +14,7 @@ $(document).ready(function(){
         console.log(intups_list);
     });
 
-    
 
-    $('#btn_play').click(function(e){
-        tg.trigger('play_video');
-    });
-
-    $('#btn_pause').click(function(e){
-        tg.trigger('pause_video');
-    });
 
     tg.bind('per_sec', function(e, video_current_time){
         var indx = intups_list.indexOf(video_current_time); 
@@ -33,14 +25,21 @@ $(document).ready(function(){
 
     tg.bind('interp_call', function(e, interp_indx){
         var interp_obj = tg.course_data.intreps[interp_indx];
-        console.log(interp_obj);
+    
         if(interp_obj.done === false){
             tg.trigger('pause_video');
-            tg.trigger(interp_obj.action, interp_obj);
+            tg.trigger('intrup-'+interp_obj.action, interp_obj);
             interp_obj.done = true;
             console.log('intrup called');
+            console.table(interp_obj);
         }
     });
+
+    tg.bind('interp_ended', function(){
+       tg.trigger('play_video'); 
+    });
+    
+
 
 
 

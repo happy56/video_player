@@ -61,6 +61,7 @@ $(document).ready(function(){
 
    tg.bind('show_student_url', function(e, data){
        var surl = student_url(data.filename);
+       tg.course_data.student_url = surl;
        $('#student_url').attr('href', surl).html(surl);
    });
 

@@ -1,27 +1,31 @@
 $(document).ready(function(){
     'use strict';
+    
     var load_video_setTimer = -999;
+
     tg.bind('load_video', function (){
 
-        if(typeof tg.player.loadVideoById !== 'undefined'){
-            console.log(typeof tg.player.loadVideoById, tg.player.loadVideoById, 'tg.player');
-            tg.player.loadVideoById(tg.course_data.youtube_id);
-        }else{
-            clearTimeout(load_video_setTimer);
-            load_video_setTimer = setTimeout(function(){ 
-                    tg.trigger('load_video'); 
-                },
-                1000);
-        }
+        tg.player.loadVideoById(tg.course_data.youtube_id);
+        tg.trigger('new_video');
+        // tg.player.mute();
+        tg.trigger('play_video');
+        // tg.player.playVideo();
     });
 
     function onPlayerReady(){
-        init_timer();        
-        tg.trigger('new_video');
-        tg.player.mute();
-        tg.player.playVideo();
+        tg.trigger('good_to_go');
+        init_timer();                
     }
     
+    tg.bind('good_to_go', function(){
+        if(typeof tg.player.loadVideoById !== 'function'){
+            return;
+        }
+        if(tg.course_data === false){
+            return;   
+        }
+        tg.trigger('load_video');
+    });
 
     tg.bind('play_video', function(){
         tg.player.playVideo();      
@@ -37,7 +41,9 @@ $(document).ready(function(){
     }
 
     function update_triggers(){
+        
         tg.trigger('per_sec', Math.floor(tg.player.getCurrentTime()));
+
     }
 
 
