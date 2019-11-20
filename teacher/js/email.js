@@ -20,5 +20,7 @@ $(document).ready(function(){
         iterput.time = tg.player_current_time;
         tg.course_data.intreps.push(iterput);
         tg.trigger('save');
+
+        $('#mail_uuid').val('');
    });
 });

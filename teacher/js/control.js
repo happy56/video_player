@@ -30,8 +30,14 @@ $(document).ready(function(){
         tg.trigger('update-student-url');
     });
 
-
+   function fun_sort(a, b){
+       return (a.time > b.time)?1:((a.time < b.time)?-1:0);
+   }
+   function sort_interps(){
+       tg.course_data.intreps.sort(fun_sort);
+   }
    tg.bind('save', function(){
+       sort_interps();
        $.post('../backend/save.php', 
        {
            title: tg.course_data.title,

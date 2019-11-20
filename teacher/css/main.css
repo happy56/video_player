@@ -27,8 +27,7 @@ a{text-decoration: none !important;}
 }
 .wp-qa{
 	display: grid;
-	grid-template-columns: 1fr 4fr;
-	
+	grid-template-columns: 2fr 5fr;	
 	margin-bottom: 10px;
 	border-radius: 4px; 
 	padding: 5px;
@@ -55,6 +54,10 @@ a{text-decoration: none !important;}
 	background-color: #F57C00;
 	color:white;
 
+}
+.wp-download{
+	background-color: #8BC34A;
+	color:white;
 }
 .wp-youtube input[type=text]{
 	color:black;
@@ -110,5 +113,5 @@ input[type=text]{
 	background-color:  #C5CAE9;
 }
 .intp-download{
-	background-color:  #303F9F;
+	background-color:  #CDDC39;
 }
