@@ -10,7 +10,6 @@ $(document).ready(function(){
             return video_id;
 
         }
-
         return url;
     }
 
@@ -23,12 +22,14 @@ $(document).ready(function(){
         $('#youtube_id').val(video_id);
         tg.course_data.youtube_id = video_id;
         tg.trigger('update-student-url');
+
     });
 
     $('#course_title').change(function(){
         tg.course_data.title = $('#course_title').val().trim();
         tg.trigger('update-student-url');
     });
+
 
    tg.bind('save', function(){
        $.post('../backend/save.php', 
@@ -39,12 +40,12 @@ $(document).ready(function(){
        function(data){
            console.log('data came back ???', data);
            tg.trigger('show_student_url', data);
+           tg.trigger('show_interput_list');
            //alert('post callback !! XXXX  is called');
        });
    });
 
    function student_url(filename){
-       console.log(filename, ' +===============++++=');
        return location.href.split('teacher')[0] 
        + 'student/player.html#' 
        + filename;
@@ -53,19 +54,16 @@ $(document).ready(function(){
 
 
    tg.bind('show_student_url', function(e, data){
-
-       console.log('show_student_url', data );
-
        var surl = student_url(data.filename);
        $('#student_url').attr('href', surl).html(surl);
-
-
    });
+
+
 
     tg.bind('update-student-url', function(){
         if(tg.course_data.title.length > 0 && tg.course_data.youtube_id.length > 0){
-
             tg.trigger('save');
+            tg.trigger('open_player_hide_title_id');
         }
     });
 

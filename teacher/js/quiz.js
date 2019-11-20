@@ -7,13 +7,14 @@ $(document).ready(function(){
    });
    tg.bind('ctr-quiz', function(){
        $('.ctr').hide();
-       $('#ctr-quiz').show();
+       $('#ctr-quiz').toggle();
+       tg.trigger('pause-video');
    });
 
    
     var static_iterput = {
            action: 'quiz',
-           time: tg.last_current_time,
+           time: tg.player_current_time,
            answers:[],
            done: false,
            next_action:'play_video',
@@ -21,8 +22,8 @@ $(document).ready(function(){
 
 
    $('#q-add').click(function(){
-       var iterput = Object.assign(static_iterput);
-           
+       var iterput = Object.assign({}, static_iterput);
+       iterput.time = tg.player_current_time;
 
        var answer, question = $('#question').val().trim();
        if (question !== ''){

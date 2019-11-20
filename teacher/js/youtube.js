@@ -13,10 +13,21 @@ $(document).ready(function(){
 
    function update_triggers(){
        var player_time = Math.floor(tg.player.getCurrentTime());
-       if (tg.last_current_time !== player_time){
+       tg.player_current_time = player_time;
+       
+       if(tg.last_current_time !== tg.player_current_time){
            tg.last_current_time = player_time;
-           tg.trigger('player_current_time_changed', player_time);
+       }else{
+           if(tg.last_player_status === tg.player.getPlayerState()){
+               return;
+           }else{
+               tg.last_player_status = tg.player.getPlayerState();
+           }
        }
+       
+               
+       tg.trigger('player_current_time_changed', player_time);
+           
    }
 
     var onYouTubeIframeAPIReady = function () {
@@ -43,10 +54,21 @@ $(document).ready(function(){
             }
             );
         
-    }
+    };
 
     window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
 
+    tg.bind('pause-video', function(){
+        if(tg.player !== false){
+            if(typeof tg.player.pauseVideo === 'function'){
+                if(tg.player.getPlayerState() === 1){
+                    tg.player.pauseVideo();
+                }
+            }
+        }
+        // tg.trigger('video-paused', );
+        update_triggers()
+    });
 
 
     

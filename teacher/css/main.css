@@ -1,7 +1,11 @@
 body{
 	
 }
-
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+a{text-decoration: none !important;}
 .hide{
 	display: none;
 }
@@ -10,8 +14,101 @@ body{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 }
-
-input[type=text]{
-	width: 80%;
+.midgap{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 10px;
+}
+.midgap > div{
+	padding: 15px;
+}
+.right-bar{
+	border-right: 1px dotted #cacaca;
+}
+.wp-qa{
+	display: grid;
+	grid-template-columns: 1fr 4fr;
 	
+	margin-bottom: 10px;
+	border-radius: 4px; 
+	padding: 5px;
+	font-size: 1.25em;
+}
+.help{
+	color:#cacaca;
+	font-size: .7em;
+}
+.wp-q{
+	background-color: #F8BBD0;
+
+}
+.wp-course{
+	
+	background-color: #536DFE;
+	color:white;
+}
+.wp-youtube{
+	background-color: #D32F2F;
+	color:white;
+}
+.wp-mailchip{
+	background-color: #F57C00;
+	color:white;
+
+}
+.wp-youtube input[type=text]{
+	color:black;
+}
+
+.wp-a{
+	background-color: #B3E5FC;
+}
+.small{
+	font-size: .95em;
+	color:#2f2f2f;
+}
+.s-gray{
+	font-size: .7em;
+		
+}
+input[type=text]{
+	border:none;
+	border-radius: 5px; 
+	width: 97%;
+	font-size: 1.35em;
+	padding: 5px;
+}
+.q-a{
+	width: 100%;
+
+}
+.top-title{
+	margin: 0px;
+}
+.emoji{
+	font-size: .65em;
+}
+.no-margin{
+	margin:0px; 
+}
+.iterp-items{
+	border-radius: 5px; 
+	padding: 5px;
+	border:1px solid #cacaca;
+	float: left;
+	width: 120px;
+	margin: 5px;
+	text-align: center;
+}
+.intp-quiz{
+	background-color:  #F8BBD0;
+}
+.intp-email{
+	background-color:  #F57C00;
+}
+.intp-share{
+	background-color:  #C5CAE9;
+}
+.intp-download{
+	background-color:  #303F9F;
 }

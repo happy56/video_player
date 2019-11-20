@@ -8,11 +8,13 @@ $(document).ready(function(){
         tg.$doc.bind(evt_name, func);
     };
     tg.trigger = function(evt_name, data){
-        console.info(evt_name, 'tg trigger');
+        // console.info(evt_name, 'tg trigger');
         tg.$doc.trigger(evt_name, data);
     };
     tg.time_update_interval = -999;
+    tg.player_current_time = 0;
     tg.last_current_time = -99;
+    tg.last_player_status = -99;
     tg.course_data = {
         youtube_id: '',
         title: '',
